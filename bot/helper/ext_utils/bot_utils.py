@@ -188,12 +188,12 @@ def get_readable_message():
                     msg += f"\n<b>├⛓️ Engine :</b> {download.eng()}"
 
                 else:
-                    msg += f"\n<b>├</b>{get_progress_bar_string(download)} {download.progress()}"
-                    msg += f"\n<b>├ Process:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
-                    msg += f"\n<b>├ Speed:</b> {download.speed()}"
-                    msg += f"\n<b>├ ETA:</b> {download.eta()}"
-                    msg += f"<b> | Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
-                    msg += f"\n<b>├ Engine :</b> {download.eng()}"
+                    msg += f"\n<b></b>{get_progress_bar_string(download)} {download.progress()}"
+                    msg += f"\n<b>Process:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                    msg += f"\n<b>Speed:</b> {download.speed()}"
+                    msg += f"\n<b>ETA:</b> {download.eta()}"
+                    msg += f"<b>Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
+                    msg += f"\n<b>Engine :</b> {download.eng()}"
 
                 if hasattr(download, 'seeders_num'):
                     try:
@@ -201,8 +201,8 @@ def get_readable_message():
                             msg += f"\n<b>├🌱 Seeders:</b> {download.seeders_num()} | <b>🐌 Leechers:</b> {download.leechers_num()}"
                             # msg += f"\n<b>├🧿 To Select:</b> <code>/{BotCommands.BtSelectCommand} {download.gid()}</code>"
                         else:
-                            msg += f"\n<b>├ Seeders:</b> {download.seeders_num()} | <b>Leechers:</b> {download.leechers_num()}"
-                            # msg += f"\n<b>├ To Select:</b> <code>/{BotCommands.BtSelectCommand} {download.gid()}</code>"
+                            msg += f"\n<bSeeders:</b> {download.seeders_num()} | <b>Leechers:</b> {download.leechers_num()}"
+                            msg += f"\n<b>To Select:</b> <code>/{BotCommands.BtSelectCommand} {download.gid()}</code>"
                     except:
                         pass
                 if download.message.chat.type != 'private':
@@ -212,8 +212,8 @@ def get_readable_message():
                             msg += f'\n<b>├🌐 Source: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">{download.message.from_user.first_name}</a> | <b>Id :</b> <code>{download.message.from_user.id}</code>'
                             msg += f"\n<b>╰❌ </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
                         else:
-                            msg += f'\n<b>├ Source: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">{download.message.from_user.first_name}</a> | <b>Id :</b> <code>{download.message.from_user.id}</code>'
-                            msg += f"\n<b>╰ </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"                 
+                            msg += f'\n<b>Source: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">{download.message.from_user.first_name}</a> | <b>Id :</b> <code>{download.message.from_user.id}</code>'
+                            msg += f"\n<code>/{BotCommands.CancelMirror} {download.gid()}</code>"                 
                     except:
                         pass
                 else:
@@ -235,21 +235,21 @@ def get_readable_message():
                     msg += f"\n<b>├⏳ Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
                     msg += f"\n<b>╰❌ </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
                 else:
-                    msg += f"\n<b>├ Size: </b>{download.size()}"
-                    msg += f"\n<b>├ Engine:</b> <code>qBittorrent v4.4.2</code>"
-                    msg += f"\n<b>├ Speed: </b>{download.upload_speed()}"
-                    msg += f"\n<b>├ Uploaded: </b>{download.uploaded_bytes()}"
-                    msg += f"\n<b>├ Ratio: </b>{download.ratio()}"
+                    msg += f"\n<b>Size: </b>{download.size()}"
+                    msg += f"\n<b>Engine:</b> <code>qBittorrent v4.4.2</code>"
+                    msg += f"\n<b>Speed: </b>{download.upload_speed()}"
+                    msg += f"\n<b>Uploaded: </b>{download.uploaded_bytes()}"
+                    msg += f"\n<b>Ratio: </b>{download.ratio()}"
                     msg += f" | <b> Time: </b>{download.seeding_time()}"
-                    msg += f"\n<b>├ Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
-                    msg += f"\n<b>╰ </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                    msg += f"\n<b>Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
+                    msg += f"\n<code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             else:
                 if EMOJI_THEME is True:
                     msg += f"\n<b>├⛓️ Engine :</b> {download.eng()}"
                     msg += f"\n<b>╰📐 Size: </b>{download.size()}"
                 else:
-                    msg += f"\n<b>├ Engine :</b> {download.eng()}"
-                    msg += f"\n<b>╰ Size: </b>{download.size()}"
+                    msg += f"\n<b>Engine :</b> {download.eng()}"
+                    msg += f"\n<b>Size: </b>{download.size()}"
             msg += f"\n<b>_________________________________</b>"
             msg += "\n\n"
             if STATUS_LIMIT is not None and index == STATUS_LIMIT:
@@ -306,8 +306,7 @@ def get_readable_message():
                 buttons.sbutton("Previous", "status pre")
                 buttons.sbutton(f"{PAGE_NO}/{PAGES}", str(THREE))
                 buttons.sbutton("Next", "status nex")
-                buttons.sbutton("Refresh", "status refresh")
-                buttons.sbutton("Close", "status close")
+
             button = buttons.build_menu(3)
             return msg + bmsg, button
         return msg + bmsg, sbutton
