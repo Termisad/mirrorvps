@@ -144,8 +144,9 @@ def start(update, context):
         buttons.buildbutton(f"😎 {START_BTN1_NAME}", f"{START_BTN1_URL}")
         buttons.buildbutton(f"🔥 {START_BTN2_NAME}", f"{START_BTN2_URL}")
     else:
-        buttons.buildbutton(f"{START_BTN1_NAME}", f"{START_BTN1_URL}")
-        buttons.buildbutton(f"{START_BTN2_NAME}", f"{START_BTN2_URL}")
+        buttons.buildbutton("Join Group", "https://telegram.dog/DrtorrentX")
+        buttons.buildbutton("Owner", "https://telegram.dog/HelpAutomatted_Bot")
+        buttons.buildbutton("Maintained By ", "https://telegram.dog/SuperGodX")
     reply_markup = buttons.build_menu(2)
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''This bot can mirror all your links to Google Drive!
