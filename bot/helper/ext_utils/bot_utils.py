@@ -205,7 +205,8 @@ def get_readable_message():
                             msg += f"\n<b>To Select:</b> <code>/{BotCommands.BtSelectCommand} {download.gid()}</code>"
                     except:
                         pass
-                uplan = "Paid User" if user_id in PAID_USERS else "Free User"
+                uplan_id = download.message.from_user.id
+                uplan = "Paid User" if uplan_id in PAID_USERS else "Free User"
                 if download.message.chat.type != 'private':
                     try:
                         chatid = str(download.message.chat.id)[4:]
