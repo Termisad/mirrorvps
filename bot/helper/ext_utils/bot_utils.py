@@ -192,7 +192,7 @@ def get_readable_message():
                     msg += f"\n<b>Process:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                     msg += f"\n<b>Speed:</b> {download.speed()}"
                     msg += f"\n<b>ETA:</b> {download.eta()}"
-                    msg += f"<b>Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
+                    msg += f"<b> | Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
                     msg += f"\n<b>Engine :</b> {download.eng()}"
 
                 if hasattr(download, 'seeders_num'):
@@ -456,7 +456,6 @@ DL : {num_active} | UP : {num_upload} | SPLIT : {num_split}
 ZIP : {num_archi} | UNZIP : {num_extract} | TOTAL : {tasks}
 Limits : T/D : {TORRENT_DIRECT_LIMIT}GB | Z/U : {ZIP_UNZIP_LIMIT}GB
                     L : {LEECH_LIMIT}GB | M : {MEGA_LIMIT}GB
-Made with ❤️ for Dr. Torrent X
 """
     return stats
 dispatcher.add_handler(
