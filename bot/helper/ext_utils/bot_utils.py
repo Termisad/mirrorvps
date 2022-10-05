@@ -8,7 +8,7 @@ from requests import head as rhead
 from urllib.request import urlopen
 
 from bot.helper.telegram_helper.bot_commands import BotCommands
-from bot import FINISHED_PROGRESS_STR, UN_FINISHED_PROGRESS_STR, download_dict, download_dict_lock, STATUS_LIMIT, botStartTime, DOWNLOAD_DIR, WEB_PINCODE, BASE_URL, EMOJI_THEME, TOTAL_TASKS_LIMIT, USER_TASKS_LIMIT, LEECH_LIMIT, MEGA_LIMIT, CREDIT_NAME, TORRENT_DIRECT_LIMIT, ZIP_UNZIP_LIMIT
+from bot import FINISHED_PROGRESS_STR, UN_FINISHED_PROGRESS_STR, download_dict, download_dict_lock, STATUS_LIMIT, botStartTime, DOWNLOAD_DIR, WEB_PINCODE, BASE_URL, EMOJI_THEME, TOTAL_TASKS_LIMIT, USER_TASKS_LIMIT, LEECH_LIMIT, MEGA_LIMIT, CREDIT_NAME, TORRENT_DIRECT_LIMIT, ZIP_UNZIP_LIMIT, PAID_USERS
 from bot.helper.telegram_helper.button_build import ButtonMaker
 
 import shutil
@@ -205,6 +205,7 @@ def get_readable_message():
                             msg += f"\n<b>To Select:</b> <code>/{BotCommands.BtSelectCommand} {download.gid()}</code>"
                     except:
                         pass
+                uplan = "Paid User" if user_id in PAID_USERS else "Free User"
                 if download.message.chat.type != 'private':
                     try:
                         chatid = str(download.message.chat.id)[4:]
@@ -213,6 +214,7 @@ def get_readable_message():
                             msg += f"\n<b>╰❌ </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
                         else:
                             msg += f'\n<b>Source: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">{download.message.from_user.first_name}</a> | <b>Id :</b> <code>{download.message.from_user.id}</code>'
+                            msg += f'\n<b>Status: </b>{uplan}'
                             msg += f"\n<code>/{BotCommands.CancelMirror} {download.gid()}</code>"                 
                     except:
                         pass
