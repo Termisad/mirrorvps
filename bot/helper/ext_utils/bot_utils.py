@@ -206,7 +206,7 @@ def get_readable_message():
                     except:
                         pass
                 uplan_id = download.message.from_user.id
-                uplan = "Paid User" if uplan_id in PAID_USERS else "Free User"
+                uplan = "<b> Paid User</b>" if uplan_id in PAID_USERS else "<b>Free User<b>"
                 if download.message.chat.type != 'private':
                     try:
                         chatid = str(download.message.chat.id)[4:]
@@ -216,7 +216,7 @@ def get_readable_message():
                         else:
                             msg += f'\n<b>Source: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">{download.message.from_user.first_name}</a> | <b>Id :</b> <code>{download.message.from_user.id}</code>'
                             msg += f'\n<b>Status: </b>{uplan}'
-                            msg += f"\n<code>/{BotCommands.CancelMirror} {download.gid()}</code>"                 
+                            msg += f"\n<b>To Cancel: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"                 
                     except:
                         pass
                 else:
@@ -245,7 +245,7 @@ def get_readable_message():
                     msg += f"\n<b>Ratio: </b>{download.ratio()}"
                     msg += f" | <b> Time: </b>{download.seeding_time()}"
                     msg += f"\n<b>Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
-                    msg += f"\n<code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                    msg += f"\n<b>To Cancel: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             else:
                 if EMOJI_THEME is True:
                     msg += f"\n<b>├⛓️ Engine :</b> {download.eng()}"
