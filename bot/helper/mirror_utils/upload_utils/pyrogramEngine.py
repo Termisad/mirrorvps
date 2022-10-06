@@ -86,30 +86,30 @@ class TgUploader:
             if file_.startswith('www'):
                 file_ = ' '.join(file_.split()[1:])
                 file_ = f"{PRENAME_X}" + file_.strip('-').strip('_')
-                cap_mono = f"<{CAPTION_FONT}>{file_}</{CAPTION_FONT}>"
+                cap_mono = f"<b>{file_}</b>"
                 cap = f"\n\n{CAPTION_X}\n\n"
                 new_path = ospath.join(dirpath, file_)
                 osrename(up_path, new_path)
                 up_path = new_path
             else:
                 file_ = f"{PRENAME_X}" + " " + file_.strip('-').strip('_')
-                cap_mono = f"<{CAPTION_FONT}>{file_}</{CAPTION_FONT}>"
+                cap_mono = f"<b>{file_}</b>"
                 cap = f"\n\n{CAPTION_X}\n\n"
                 new_path = ospath.join(dirpath, file_)
                 osrename(up_path, new_path)
                 up_path = new_path
         else:
-            cap_mono = f"<{CAPTION_FONT}>{file_}</{CAPTION_FONT}>"
+            cap_mono = f"<b>{file_}</b>"
             cap = f"\n\n{CAPTION_X}\n\n"
         # if CUSTOM_FILENAME is not None and prefix == '':
-        #     cap_mono = f"<{CAPTION_FONT}>{CUSTOM_FILENAME} {file_}</{CAPTION_FONT}>"
+        #     cap_mono = f"<b>{CUSTOM_FILENAME} {file_}</b>"
         #     cap = f"\n\n{CAPTION_X}\n\n"
         #     file_ = f"{CUSTOM_FILENAME} {file_}"
         #     new_path = ospath.join(dirpath, file_)
         #     osrename(up_path, new_path)
         #     up_path = new_path
         # else:
-        #     cap_mono = f"<{CAPTION_FONT}>{file_}</{CAPTION_FONT}>"
+        #     cap_mono = f"<b>{file_}</b>"
         #     cap = f"\n\n{CAPTION_X}\n\n"
         dumpid = LEECH_DICT.get(self.__listener.message.from_user.id, "")
         if len(dumpid) != 0:
