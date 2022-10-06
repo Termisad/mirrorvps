@@ -188,7 +188,7 @@ def get_readable_message():
                     msg += f"\n<b>├⛓️ Engine :</b> {download.eng()}"
 
                 else:
-                    msg += f"\n<b></b>{get_progress_bar_string(download)} {download.progress()}"
+                    msg += f"\n{get_progress_bar_string(download)} {download.progress()}"
                     msg += f"\n<b>Process:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                     msg += f"\n<b>Speed:</b> {download.speed()}"
                     msg += f"\n<b>ETA:</b> {download.eta()}"
@@ -206,7 +206,7 @@ def get_readable_message():
                     except:
                         pass
                 uplan_id = download.message.from_user.id
-                uplan = "<b> Paid User</b>" if uplan_id in PAID_USERS else "<b>Free User<b>"
+                uplan = "<b> Paid User</b>" if uplan_id in PAID_USERS else "<b>Free User</b>"
                 if download.message.chat.type != 'private':
                     try:
                         chatid = str(download.message.chat.id)[4:]
