@@ -430,7 +430,7 @@ def main():
                     msg += f"⌚TIME: {time}\n"
                     msg += f"🌐TIMEZONE: {TIMEZONE}\n"
                 else:
-                    msg = f"DrTorrentX Premium Bot\n"
+                    msg = f"Dr. Torrent X Premium Bot\n"
                     msg += f"Bot Restarted!\n"
                     msg += f"DATE: {date}\n"
                     msg += f"TIME: {time}\n"
